@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Prediction System</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- LEFT SIDE -->
+    <div class="left-panel">
+
+        <h1>🩺 Diabetes Prediction</h1>
+
+        <p class="subtitle">
+            AI-powered health prediction system using Machine Learning
+        </p>
+
+        <img src="https://cdn-icons-png.flaticon.com/512/2966/2966488.png"
+             class="medical-image">
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right-panel">
+
+        <div class="card">
+
+            <h2><i class="fa-solid fa-heart-pulse"></i> Enter Patient Details</h2>
+
+            <form action="/predict" method="post">
+
+                <div class="input-group">
+                    <label>Pregnancies</label>
+                    <input type="number" name="Pregnancies" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Glucose</label>
+                    <input type="number" step="any" name="Glucose" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Blood Pressure</label>
+                    <input type="number" step="any" name="BloodPressure" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Skin Thickness</label>
+                    <input type="number" step="any" name="SkinThickness" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Insulin</label>
+                    <input type="number" step="any" name="Insulin" required>
+                </div>
+
+                <div class="input-group">
+                    <label>BMI</label>
+                    <input type="number" step="any" name="BMI" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Diabetes Pedigree Function</label>
+                    <input type="number" step="any" name="DiabetesPedigreeFunction" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Age</label>
+                    <input type="number" name="Age" required>
+                </div>
+
+                <button type="submit">
+                    <i class="fa-solid fa-stethoscope"></i>
+                    Predict Now
+                </button>
+
+            </form>
+
+            {% if prediction %}
+
+            <div class="prediction-box">
+
+                <h3>Prediction Result</h3>
+
+                <p>{{ prediction }}</p>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
